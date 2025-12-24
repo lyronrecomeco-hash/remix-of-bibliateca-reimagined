@@ -1,17 +1,15 @@
 import { Button } from "@/components/ui/button";
 import mockupProduct from "@/assets/mockup-product.png";
 
+const scrollToPricing = () => {
+  const pricingSection = document.getElementById("pricing");
+  pricingSection?.scrollIntoView({ behavior: "smooth" });
+};
+
 const HeroSection = () => {
   return (
     <section className="bg-background py-8">
       <div className="container mx-auto px-4">
-        {/* Banner Topo */}
-        <div className="bg-primary text-primary-foreground text-center py-3 px-4 rounded-lg mb-8">
-          <p className="text-sm md:text-base font-semibold">
-            🔥 <span className="text-secondary">OFERTA ESPECIAL</span> - Apenas hoje com 60% de desconto!
-          </p>
-        </div>
-
         {/* Headline Principal */}
         <div className="text-center max-w-4xl mx-auto mb-8">
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-6">
@@ -51,8 +49,11 @@ const HeroSection = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Button className="bg-secondary text-secondary-foreground font-bold text-lg py-6 px-10 rounded-lg shadow-lg hover:opacity-90">
-            QUERO MEU MAPA AGORA!
+          <Button 
+            onClick={scrollToPricing}
+            className="bg-secondary text-secondary-foreground font-bold text-lg py-6 px-10 rounded-lg shadow-lg hover:opacity-90"
+          >
+            QUERO MEU MATERIAL
           </Button>
         </div>
       </div>

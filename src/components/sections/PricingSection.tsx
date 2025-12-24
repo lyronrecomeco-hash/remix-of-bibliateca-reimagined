@@ -1,27 +1,31 @@
 import { Button } from "@/components/ui/button";
-import { Check, Shield } from "lucide-react";
+import { Check } from "lucide-react";
+import seloGarantia from "@/assets/selo-garantia.webp";
 
 const basicFeatures = [
-  "Mapa Didático da Bíblia (130+ páginas)",
-  "Panorama dos 66 Livros",
-  "Mapas Mentais Ilustrados",
-  "10 Bônus Exclusivos",
-  "Acesso Vitalício",
-  "Atualizações Gratuitas",
+  { emoji: "📚", text: "Mapa Didático da Bíblia (130+ páginas)" },
+  { emoji: "🗺️", text: "Panorama dos 66 Livros" },
+  { emoji: "🧠", text: "Mapas Mentais Ilustrados" },
+  { emoji: "🎁", text: "10 Bônus Exclusivos" },
+  { emoji: "♾️", text: "Acesso Vitalício" },
+  { emoji: "🔄", text: "Atualizações Gratuitas" },
 ];
 
-const completeFeatures = [
-  "Tudo do Plano Básico",
-  "Coleção Completa (300+ mapas)",
-  "Estudos Aprofundados",
-  "15 Bônus Premium",
-  "Grupo VIP no Telegram",
-  "Suporte Prioritário",
+const premiumFeatures = [
+  { emoji: "✅", text: "Tudo do Plano Básico", highlight: true },
+  { emoji: "📖", text: "Coleção Completa (300+ mapas)" },
+  { emoji: "📊", text: "Estudos Aprofundados" },
+  { emoji: "🎁", text: "15 Bônus Premium" },
+  { emoji: "💬", text: "Grupo VIP no Telegram" },
+  { emoji: "🎯", text: "Suporte Prioritário" },
+  { emoji: "📱", text: "Acesso via App Exclusivo" },
+  { emoji: "🔔", text: "Novidades em Primeira Mão" },
+  { emoji: "📥", text: "Downloads Ilimitados" },
 ];
 
 const PricingSection = () => {
   return (
-    <section className="bg-background py-12">
+    <section id="pricing" className="bg-background py-12">
       <div className="container mx-auto px-4">
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground text-center mb-2">
           Escolha seu plano
@@ -34,73 +38,78 @@ const PricingSection = () => {
           {/* Plano Básico */}
           <div className="border-2 border-border rounded-2xl p-6 bg-background">
             <div className="text-center mb-6">
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">Básico</h3>
+              <h3 className="font-heading text-xl font-bold text-foreground mb-2">💜 Básico</h3>
               <p className="text-muted-foreground text-sm mb-4">Ideal para começar</p>
               <div className="mb-2">
                 <span className="text-muted-foreground line-through text-lg">R$ 97</span>
               </div>
               <div className="text-4xl font-heading font-bold text-primary">
-                R$ 37
+                R$ 29
               </div>
-              <p className="text-muted-foreground text-sm">ou 4x de R$ 10,28</p>
+              <p className="text-muted-foreground text-sm">ou 3x de R$ 10,30</p>
             </div>
 
             <ul className="space-y-3 mb-6">
               {basicFeatures.map((feature, index) => (
-                <li key={index} className="flex items-center gap-2 text-sm">
-                  <Check className="w-5 h-5 text-green shrink-0" />
-                  <span>{feature}</span>
+                <li key={index} className="flex items-center gap-3 text-sm">
+                  <span className="text-xl">{feature.emoji}</span>
+                  <span>{feature.text}</span>
                 </li>
               ))}
             </ul>
 
-            <Button className="w-full bg-primary text-primary-foreground font-bold py-6">
-              QUERO O BÁSICO
+            <Button className="w-full bg-primary text-primary-foreground font-bold py-6 text-lg">
+              QUERO MEU MATERIAL
             </Button>
           </div>
 
-          {/* Plano Completo */}
-          <div className="border-2 border-primary rounded-2xl p-6 bg-primary/5 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="bg-secondary text-secondary-foreground px-4 py-1 rounded-full text-sm font-bold">
-                MAIS POPULAR
+          {/* Plano Premium */}
+          <div className="border-4 border-orange-500 rounded-2xl p-6 bg-gradient-to-b from-orange-50 to-yellow-50 relative shadow-2xl transform md:scale-105">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                MAIS VENDIDO 🔥
               </span>
             </div>
 
-            <div className="text-center mb-6">
-              <h3 className="font-heading text-xl font-bold text-foreground mb-2">Completo</h3>
-              <p className="text-primary text-sm font-medium mb-4">Transformação total</p>
+            <div className="text-center mb-6 pt-2">
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">💛 Premium</h3>
+              <p className="text-orange-600 text-sm font-medium mb-4">Transformação total garantida</p>
               <div className="mb-2">
                 <span className="text-muted-foreground line-through text-lg">R$ 197</span>
+                <span className="ml-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">-70%</span>
               </div>
-              <div className="text-4xl font-heading font-bold text-primary">
-                R$ 97
+              <div className="text-5xl font-heading font-bold text-orange-600">
+                R$ 59
               </div>
-              <p className="text-muted-foreground text-sm">ou 6x de R$ 18,54</p>
+              <p className="text-muted-foreground text-sm">ou 6x de R$ 11,17</p>
             </div>
 
             <ul className="space-y-3 mb-6">
-              {completeFeatures.map((feature, index) => (
-                <li key={index} className="flex items-center gap-2 text-sm">
-                  <Check className="w-5 h-5 text-green shrink-0" />
-                  <span>{feature}</span>
+              {premiumFeatures.map((feature, index) => (
+                <li key={index} className={`flex items-center gap-3 text-sm ${feature.highlight ? 'font-bold text-orange-600' : ''}`}>
+                  <span className="text-xl">{feature.emoji}</span>
+                  <span>{feature.text}</span>
                 </li>
               ))}
             </ul>
 
-            <Button className="w-full bg-secondary text-secondary-foreground font-bold py-6">
-              QUERO O COMPLETO
+            <Button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-6 text-lg shadow-lg">
+              QUERO MEU MATERIAL
             </Button>
           </div>
         </div>
 
-        {/* Garantia */}
-        <div className="flex items-center justify-center gap-4 mt-8 p-6 bg-muted rounded-xl max-w-xl mx-auto">
-          <Shield className="w-16 h-16 text-green shrink-0" />
-          <div>
-            <h4 className="font-heading font-bold text-foreground">Garantia de 7 Dias</h4>
-            <p className="text-sm text-muted-foreground">
-              Se não ficar satisfeito, devolvemos 100% do seu investimento. Sem perguntas!
+        {/* Garantia com selo */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 p-8 bg-muted rounded-2xl max-w-2xl mx-auto">
+          <img 
+            src={seloGarantia} 
+            alt="Selo de Garantia 7 Dias" 
+            className="w-32 h-32 object-contain"
+          />
+          <div className="text-center md:text-left">
+            <h4 className="font-heading text-xl font-bold text-foreground mb-2">Garantia incondicional de 7 dias</h4>
+            <p className="text-muted-foreground">
+              Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia!
             </p>
           </div>
         </div>

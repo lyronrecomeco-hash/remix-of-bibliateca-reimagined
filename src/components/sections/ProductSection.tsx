@@ -1,14 +1,19 @@
-import { BookOpen, Brain, Eye, Map, Clock, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import mockupProduct from "@/assets/mockup-product.png";
 
 const features = [
-  { icon: BookOpen, text: "Panorama completo dos 66 livros" },
-  { icon: Map, text: "Mapas mentais ilustrados" },
-  { icon: Brain, text: "Técnicas de memorização" },
-  { icon: Eye, text: "Design visual atrativo" },
-  { icon: Clock, text: "Cronologia bíblica" },
-  { icon: Heart, text: "Devocional diário estruturado" },
+  { emoji: "📚", text: "Panorama completo dos 66 livros" },
+  { emoji: "🗺️", text: "Mapas mentais ilustrados" },
+  { emoji: "🧠", text: "Técnicas de memorização" },
+  { emoji: "🎨", text: "Design visual atrativo" },
+  { emoji: "⏰", text: "Cronologia bíblica" },
+  { emoji: "❤️", text: "Devocional diário estruturado" },
 ];
+
+const scrollToPricing = () => {
+  const pricingSection = document.getElementById("pricing");
+  pricingSection?.scrollIntoView({ behavior: "smooth" });
+};
 
 const ProductSection = () => {
   return (
@@ -40,14 +45,24 @@ const ProductSection = () => {
             </h3>
             
             {features.map((feature, index) => (
-              <div key={index} className="flex items-center gap-3 bg-muted p-4 rounded-lg">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                  <feature.icon className="w-5 h-5 text-primary" />
+              <div key={index} className="flex items-center gap-3 bg-muted p-4 rounded-lg hover:bg-muted/80 transition-colors">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-purple-700 rounded-full flex items-center justify-center shrink-0 shadow-md">
+                  <span className="text-2xl">{feature.emoji}</span>
                 </div>
                 <span className="text-foreground font-medium">{feature.text}</span>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-8">
+          <Button 
+            onClick={scrollToPricing}
+            className="bg-secondary text-secondary-foreground font-bold text-lg py-6 px-10 rounded-lg shadow-lg hover:opacity-90"
+          >
+            QUERO MEU MATERIAL
+          </Button>
         </div>
       </div>
     </section>

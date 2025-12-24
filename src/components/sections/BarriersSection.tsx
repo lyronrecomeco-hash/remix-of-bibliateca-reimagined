@@ -1,22 +1,30 @@
-import { Globe, Languages, Smartphone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const barriers = [
   {
-    icon: Globe,
+    emoji: "📅",
     title: "Barreira Cronológica",
     description: "A Bíblia não está organizada em ordem cronológica, o que dificulta entender a sequência dos acontecimentos.",
+    gradient: "from-purple-500 to-purple-700",
   },
   {
-    icon: Languages,
+    emoji: "📖",
     title: "Barreira Linguística",
     description: "Termos antigos e traduções podem dificultar a compreensão do verdadeiro significado do texto.",
+    gradient: "from-blue-500 to-blue-700",
   },
   {
-    icon: Smartphone,
+    emoji: "📱",
     title: "Barreira Tecnológica",
     description: "No mundo digital de hoje, manter o foco na leitura se tornou um verdadeiro desafio.",
+    gradient: "from-orange-500 to-orange-700",
   },
 ];
+
+const scrollToPricing = () => {
+  const pricingSection = document.getElementById("pricing");
+  pricingSection?.scrollIntoView({ behavior: "smooth" });
+};
 
 const BarriersSection = () => {
   return (
@@ -33,9 +41,9 @@ const BarriersSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {barriers.map((barrier, index) => (
-            <div key={index} className="bg-background p-6 rounded-xl shadow-sm text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <barrier.icon className="w-8 h-8 text-primary" />
+            <div key={index} className="bg-background p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow">
+              <div className={`w-20 h-20 bg-gradient-to-br ${barrier.gradient} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                <span className="text-4xl">{barrier.emoji}</span>
               </div>
               <h3 className="font-heading text-lg font-bold text-foreground mb-2">
                 {barrier.title}
@@ -45,6 +53,16 @@ const BarriersSection = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-8">
+          <Button 
+            onClick={scrollToPricing}
+            className="bg-secondary text-secondary-foreground font-bold text-lg py-6 px-10 rounded-lg shadow-lg hover:opacity-90"
+          >
+            QUERO MEU MATERIAL
+          </Button>
         </div>
       </div>
     </section>

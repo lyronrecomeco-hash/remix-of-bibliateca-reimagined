@@ -1,9 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import HeroSection from "@/components/sections/HeroSection";
-import ProblemSection from "@/components/sections/ProblemSection";
-import SolutionSection from "@/components/sections/SolutionSection";
-import BenefitsSection from "@/components/sections/BenefitsSection";
+import ForYouSection from "@/components/sections/ForYouSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import BarriersSection from "@/components/sections/BarriersSection";
+import ProductSection from "@/components/sections/ProductSection";
+import BonusSection from "@/components/sections/BonusSection";
 import PricingSection from "@/components/sections/PricingSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
@@ -13,21 +14,20 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Guia Sagrado - Domine a Bíblia em 30 Dias com Mapas Mentais</title>
+        <title>Mapa Didático da Bíblia - Aprenda e Memorize a Palavra de Deus</title>
         <meta 
           name="description" 
-          content="Aprenda a entender, memorizar e aplicar a Bíblia com o método visual que já transformou mais de 10.000 cristãos. Mapas mentais completos de todos os 66 livros." 
+          content="Método visual com mapas mentais para você aprender, revisar e memorizar a Bíblia. Mais de 130 páginas com panorama completo dos 66 livros." 
         />
-        <meta name="keywords" content="estudo bíblico, mapas mentais, Bíblia, devocional, memorização bíblica" />
-        <link rel="canonical" href="https://guiasagrado.com.br" />
       </Helmet>
 
       <main className="min-h-screen bg-background">
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <BenefitsSection />
+        <ForYouSection />
         <TestimonialsSection />
+        <BarriersSection />
+        <ProductSection />
+        <BonusSection />
         <PricingSection />
         <FAQSection />
         <FinalCTASection />
